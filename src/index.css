@@ -1,13 +1,148 @@
+:root{
+   --main-bg-color: rgb(140, 218, 152);
+   --border-shadow:  -5px 5px 10px #dbdbdb,
+             5px -5px 10px #ffffff;
+}
+html{box-sizing:border-box;}
+*,*::before,*::after{box-sizing:inherit;}
+@media (min-width:800px){
+  html{
+    font-size:110%;
+  }
+}
 body {
   margin: 0;
+  padding:0;
+  line-height: 1.5;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+h1,h2,h3,p{margin-top:0}
+/* set h1>h3 sizes */
+/* h1,h2,h3,p{margin-top:0}this means */
+.App{
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  box-shadow:var(--border-shadow);
+  width: 60%;
+  max-width:700px;
+  margin: 5em auto;
+  padding: 2em 0;
+  min-width:500px;
+}
+.App-header{
+  margin:0;
+  padding: 0;
+  outline: 2px solid red;
+}
+button{
+  text-decoration: none;
+  border:none;
+  box-shadow: none;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  padding: .7em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all .2s ease;
+}
+button:hover{
+    transform: scale(1.1);
+  border-radius:10px;
+}
+.button-container{
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0;
+
+}
+@media (min-width:916px) {
+  .button-container{
+  width: 30%;
+}
+}
+.delete{
+  background:rgba(238, 77, 77, 0.767);
+}
+.edit{
+  background: rgba(117, 219, 236, 0.795);
+}
+.delete:hover {
+    background: #ff0000;
+}
+.edit:hover {
+    background: #00adf1;
+}
+.delete:active{
+   background: #ff0000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.todo-item{
+  margin:.5em auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0.6em;
+  min-height:6em;
+  border-radius: 7px;
+  box-shadow:var(--border-shadow);
+  position: relative;
 }
+.todo-item::after{
+  content: "";
+  position: absolute;
+  width: .5em;
+  height: 6em;
+  background: rgb(67,250,196);
+background: linear-gradient(180deg, rgba(67,250,196,1) 2%, rgba(65,255,149,0.38604651162790693) 58%, rgba(26,177,186,0.05581395348837215) 100%);
+  top:0;
+  right: -1em;
+  border-radius: 20px 20px 0 0;
+  box-shadow:var(--border-shadow);
+}
+.todo{
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin: 0;
+  width: 50%;
+  text-align: center;
+}
+
+form button{
+  font-size: 1.2rem;
+  background-color: var(--main-bg-color);
+  border-radius: 0 10px 10px 0;
+  padding: 0.6em;
+  margin: 0;
+  transition: all .2s linear;
+}
+form{
+  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type=text]{
+  font-size: 1.2rem;
+  width: 40%;
+  box-shadow: none;
+  display: inline-block;
+  border-radius: 0;
+  border: none;
+  padding:.53em;
+  outline: 2px solid var(--main-bg-color);
+}
+form button:hover,
+form button:hover
+{
+  background-color:turquoise;
+  transform: scale(1.1);
+  border-radius:10px;
+}
+/* flex in seperate class */
+/* Start with typography first because layout first will shift around when you add text sizes  */
