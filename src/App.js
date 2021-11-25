@@ -24,15 +24,15 @@ function App() {
     )
   }
 
- useEffect(() => {
-   localStorage.setItem("todos", JSON.stringify(todos))
-   console.log(localStorage.getItem("todos"))
- }, [todos])
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+    console.log(localStorage.getItem("todos"))
+  }, [todos])
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>todo/shopping list</h1>
+        <h1>Todo List</h1>
         {editing && <h2>Editing</h2>}
       </header>
       <main>
@@ -43,9 +43,9 @@ function App() {
           //edit changes form to edit mode and alters current todo when you click the button finally
           //how to edit?
           //edit button in todo component, this activates "edit mode" where in the input box contents is the text from the todo being edited. the button will change the todo when clicked and then we go back to "add todo" mode where the button switches back to adding function
-          //how do we acheive this?
+          //how do we achieve this?
           //in the todo component
-          //we have an eit button, this button will activate "edit mode" and supply the index to be edited
+          //we have an edit button, this button will activate "edit mode" and supply the index to be edited
           //in the app
           //we are put in edit mode by the edit component the add button becomes an edit button and can now carry out the edit on the selected index, that is it will take all todo values
         }
@@ -62,7 +62,6 @@ function App() {
             }}
           />
           <button
-            
             onClick={(e) => {
               e.preventDefault()
               if (editing) {
