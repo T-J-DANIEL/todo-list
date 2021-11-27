@@ -6,6 +6,7 @@ const Todo = ({
   setEditing,
   setEditIndex,
   setCurrentTodo,
+  editing,
 }) => {
   return (
     <div className="todo-item">
@@ -19,6 +20,7 @@ const Todo = ({
             e.preventDefault()
             deleteTodo(todoIndex)
           }}
+          disabled={editing}
         >
           Delete
         </button>

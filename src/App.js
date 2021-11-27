@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import Todo from "./Todo.js"
+import Alert from "./Alert"
+import Todo from "./Todo"
 function App() {
   const getLocalStorage = () => {
     let list = localStorage.getItem("todos")
@@ -13,7 +14,7 @@ function App() {
   const [todos, setTodos] = useState(getLocalStorage())
   const [editing, setEditing] = useState(false)
   const [editIndex, setEditIndex] = useState()
-
+  const [deleted, setDeleted] = useState(false)
   //functions
   //delete function
   const deleteTodo = (todoIndex) => {
@@ -22,6 +23,8 @@ function App() {
         return index !== todoIndex
       })
     )
+    setDeleted(true)
+    setTimeout(()=>{setDeleted(false)},1000)
   }
 
   useEffect(() => {
@@ -33,7 +36,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Todo List</h1>
-        {editing && <h2>Editing</h2>}
+        {(editing||deleted) && <Alert message={`${editing?"editing":"item deleted"}`} editing={editing} deleted={deleted}/>}
       </header>
       <main>
         {
@@ -103,6 +106,7 @@ function App() {
                   deleteTodo={deleteTodo}
                   // editTodo={editTodo}
                   setCurrentTodo={setCurrentTodo}
+                  editing={editing}
                 />
               )
             })

@@ -141,7 +141,17 @@ button:hover {
   width: 50%;
   text-align: center;
 }
-
+.alert{
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  opacity: .3;
+  background-color: rgba(236, 65, 65, 0.774);
+  margin: 1em;
+}
+.editing{
+  background-color: rgb(140, 218, 152);
+}
 /* <<<< 5. Form styles >>>> */
 
 form button {
